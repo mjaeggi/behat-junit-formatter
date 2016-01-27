@@ -228,7 +228,18 @@ class JUnitFormatter implements Formatter
     public function beforeExample(ScenarioTested $event)
     {
         $this->currentTestcase = $this->currentTestsuite->addChild('testcase');
-        $this->currentTestcase->addAttribute('name', $this->currentOutlineTitle . ' Line #' . $event->getScenario()->getLine());
+        $scenario = $event->getScenario();
+        $tokens = array_change_key_case($scenario->getTokens());
+        $test_case_name = $this->currentOutlineTitle;
+
+        if(array_key_exists('description', $tokens)){
+            $scenario_description = $tokens['description'];
+            $test_case_name .= ' - ' . $scenario_description;
+        }else{
+            $test_case_name .= ' Line #' . $event->getScenario()->getLine();
+        }
+
+        $this->currentTestcase->addAttribute('name', $test_case_name);
 
         $this->testcaseTimer->start();
     }
