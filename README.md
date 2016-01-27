@@ -10,7 +10,7 @@ This extension requires:
 #### Install with composer:
 
 ```bash
-$ composer require --dev jarnaiz/behat-junit-formatter
+$ composer require --dev mjaeggi/behat-junit-formatter
 ```
 
 ## Basic usage
@@ -41,10 +41,4 @@ behat -f junit
 
 you also could use JARNAIZ_JUNIT_FILENAME and JARNAIZ_JUNIT_OUTPUTDIR env variables
 
-## Issue Submission
 
-Feel free to [Create a new issue](https://github.com/j-arnaiz/behat-junit-formatter/issues/new).
-
-## Thanks to
-
-Thanks to emuse html extension that inspired me to created this one.
